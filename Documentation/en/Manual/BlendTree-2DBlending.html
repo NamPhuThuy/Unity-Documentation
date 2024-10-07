@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+	<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+	<script type="text/javascript" src="https://cdn.cookielaw.org/scripttemplates/otSDKStub.js" charset="UTF-8"
+		data-domain-script="6e91be4c-3145-4ea2-aa64-89d716064836"></script>
+	<script type="text/javascript">
+		function OptanonWrapper() { }
+	</script>
+	<script>var offline = (location.href.indexOf('docs.unity3d.com') == -1) ? true : false; if (!offline) { (function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer', 'GTM-5V25JL6'); }</script>
+	<link href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap" rel="stylesheet">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Unity - Manual: 2D Blending</title>
+	<meta property="og:image" content="https://unity3d.com/files/images/ogimg.jpg">
+	<meta name="author" content="Unity Technologies">
+	<link rel="shortcut icon" href="https://unity.com/themes/contrib/unity_base/images/favicons/favicon.ico">
+	<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+	<link rel="apple-touch-icon-precomposed" sizes="152x152"
+		href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144"
+		href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+	<link rel="apple-touch-icon-precomposed" sizes="120x120"
+		href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114"
+		href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72"
+		href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+	<meta name="msapplication-TileColor" content="#222c37">
+	<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+	<script type="text/javascript" src="https://docs.unity3d.com/StaticFilesConfig/UnityVersionsInfo.js"></script>
+	<script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=20230901"></script>
+	<script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=20230901"></script>
+	<script type="text/javascript" src="docdata/toc.js?ts=20230901"></script>
+	<script type="text/javascript" src="docdata/global_toc.js?ts=20230901"></script>
+	<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=20230901">
+	<link rel="stylesheet" href="../StaticFilesManual/css/prism.css">
+	<script src="../StaticFilesManual/js/prism.js"></script>
+	<script src="/StaticFilesConfig/feedback/feedback.js"></script>
+	<script src="../StaticFilesManual/js/jquery.sidebar.min.js"></script>
+	<link rel="stylesheet" href="../StaticFilesManual/css/mobileoptimisation.css">
+	<script src="../StaticFilesManual/js/mobileoptimisation.js"></script>
+</head>
+
+<body>
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5V25JL6" height="0" width="0"
+			style="display:none;visibility:hidden"></iframe></noscript>
+	<div id="DocsAnalyticsData" data-area="authoring" data-pagetype="manual"></div>
+	<div class="header-wrapper">
+		<div id="header" class="header">
+			<div class="content">
+				<div class="spacer">
+					<div class="menu">
+						<div id="nav-open" for="nav-input"><span></span></div>
+						<div class="logo"><a href="https://docs.unity3d.com"></a></div>
+						<div class="search-form">
+							<form action="30_search.html" method="get" class="apisearch">
+								<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference"
+									results="5" class="sbox field" id="q"><input type="submit" class="submit">
+							</form>
+						</div>
+						<ul>
+							<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+							<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="more">
+					<div class="filler"></div>
+					<ul>
+						<li><a href="https://unity.com/">unity.com</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="toolbar">
+			<div class="content">
+				<div class="toggle version-number" id="VersionNumber" data-target=".otherversionscontent">
+					Version: <b>2022.3</b>
+					<div class="otherversionscontent" id="OtherVersionsContent" style="display: none;">
+						<ul id="OtherVersionsContentUl"></ul>
+						<div id="otherVersionsLegend">
+							<ul>
+								<li>
+									<div id="supportedColour" class="legendBox"></div>Supported
+								</li>
+								<li>
+									<div id="notFoundColour" class="legendBox"></div>Legacy
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div id="VersionSwitcherArrow" class="arrow versionSwitcherArrow"></div>
+				</div>
+				<div class="lang-switcher">
+					<div class="current toggle" data-target=".lang-list">
+						<div class="lbl">Language
+							: <span class="b">English</span>
+						</div>
+						<div class="arrow"></div>
+						<div class="lang-list" style="display:none;">
+							<ul>
+								<li><a href="/Manual/BlendTree-2DBlending.html">English</a></li>
+								<li><a href="/cn/current/Manual/BlendTree-2DBlending.html">中文</a></li>
+								<li><a href="/ja/current/Manual/BlendTree-2DBlending.html">日本語</a></li>
+								<li><a href="/kr/current/Manual/BlendTree-2DBlending.html">한국어</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="mobileLogo"><a href="https://docs.unity3d.com"></a></div>
+	</div>
+	<div id="master-wrapper" class="master-wrapper clear">
+		<div id="sidebar" class="sidebar">
+			<div class="sidebar-wrap">
+				<div class="content">
+					<div class="sidebar-menu">
+						<div class="toc" id="customScrollbar">
+							<h2>Unity Manual</h2>
+							<div class="search-form sidebar-search-form">
+								<form action="30_search.html" method="get" class="apisearch">
+									<input type="text" name="q" placeholder="Search manual..."
+										autosave="Unity Reference" results="5" class="sbox field" id="q"><input
+										type="submit" id="mobileSearchBtn" class="submit" value="Search">
+								</form>
+							</div>
+							<div class="toggle version-number sidebar-version-switcher" id="VersionNumber"
+								data-target=".otherversionscontent">
+								<form id="otherVersionsContentMobileForm">
+									<div class="ui-field-contain">
+										<label for="select-native-4">Version: 2022.3</label><select
+											name="select-native-4" id="versionsSelectMobile">
+											<option>Select a different version</option>
+											<optgroup id="versionsWithThisPageMobile" label="Versions with this page">
+											</optgroup>
+											<optgroup id="versionsWithoutThisPageMobile"
+												label="Versions without this page"></optgroup>
+										</select>
+									</div>
+								</form>
+							</div>
+							<div class="lang-switcher">
+								<div class="current toggle" data-target=".lang-list">
+									<div class="lbl">Language
+										: <span class="b">English</span>
+									</div>
+									<div class="arrow"></div>
+									<div class="lang-list" style="display:none;">
+										<ul>
+											<li><a href="/Manual/BlendTree-2DBlending.html">English</a></li>
+											<li><a href="/cn/current/Manual/BlendTree-2DBlending.html">中文</a></li>
+											<li><a href="/ja/current/Manual/BlendTree-2DBlending.html">日本語</a></li>
+											<li><a href="/kr/current/Manual/BlendTree-2DBlending.html">한국어</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="content-wrap" class="content-wrap">
+			<div class="content-block">
+				<div class="content">
+					<div class="section">
+						<div class="breadcrumbs clear">
+							<ul>
+								<li><a href="UnityManual.html"> Unity User Manual 2022.3 (LTS)</a></li>
+								<li><a href="AnimationSection.html">Animation</a></li>
+								<li><a href="AnimatorControllers.html">Animator Controllers</a></li>
+								<li><a href="class-BlendTree.html">Blend Trees</a></li>
+								<li>2D Blending</li>
+							</ul>
+						</div>
+						<div class="mb20">
+							<div class="nextprev clear">
+								<div class="icon tt left mr1" data-distance="-40|-30|top">
+									<span class="prev"><a href="BlendTree-1DBlending.html"></a></span>
+									<div class="tip">1D Blending</div>
+								</div>
+								<div class="icon tt right" data-distance="-40|-30|top">
+									<span class="next"><a href="BlendTree-DirectBlending.html"></a></span>
+									<div class="tip">Direct Blending</div>
+								</div>
+							</div>
+						</div>
+						<div id="_leavefeedback"></div>
+						<h1>2D Blending</h1>
+						<!--BeginSwitchLink--><!--EndSwitchLink-->
+						<div class="clear"></div>
+
+						<h2>Blend Type</h2>
+						<p>The first option in the <span class="tooltip"><strong>Inspector</strong><span
+									class="tooltiptext">A Unity window that displays information about the currently
+									selected GameObject, asset or project settings, allowing you to inspect and edit the
+									values. <a class="tooltipMoreInfoLink" href="UsingTheInspector.html">More
+										info</a><br /><span class="tooltipGlossaryLink">See in <a
+											class="tooltipMoreInfoLink"
+											href="Glossary.html#Inspector">Glossary</a></span></span></span> of a <span
+								class="tooltip"><strong>Blend Node</strong><span class="tooltiptext">A node in a Blend
+									Tree graph that blends animation clip nodes. <a href="class-BlendTree.html">More
+										info</a><br /><span class="tooltipGlossaryLink">See in <a
+											href="Glossary.html#BlendNode">Glossary</a></span></span></span> is the
+							<strong>Blend Type</strong>
+						</p>
+
+
+						<h3>2D Simple Directional</h3>
+						<p>
+							Best used when your motions represent different directions, such as “walk... forward,
+							backward, left, right”, or “aim... up, down, left, right"
+							. Một <strong>optional single motion</strong> có thể được đặt ở vị trí (0, 0), như “idle”
+							hoặc “aim straight”. Với <strong>2D Simple Directional type</strong>
+							, <em>không nên</em> đặt nhiều motions có cùng direction, ví dụ, “walk forward” và “run
+							forward”
+						</p>
+						<h4>Nếu blend position là (0, 0)</h4>
+
+						<div style="display: flex; overflow: visible; padding: 0; margin: 0;">
+							<figure style="margin: 0; padding: 0;">
+								<img src="../uploads/Main/MecanimBlendTree2D2.png" height="60%">
+								<figcaption>If your blend position is (0, 0), and there is a motion field at position
+									(0, 0). Then this motion field would be full-weight.</figcaption>
+							</figure>
+
+							<figure style="margin: 0; padding: 0;">
+								<img src="../uploads/Main/MecanimBlendTree2D3.png" height="60%">
+								<figcaption>If there is not a motion at position (0, 0). Then all motion would have an
+									averaged weight. No matter what the motion position is.</figcaption>
+							</figure>
+						</div>
+
+
+						<h4>Nếu blend position <em>không phải</em> là (0, 0)</h4>
+
+						<p>If the blend position is not (0, 0), all motion field would be traversed. The
+							clockwise-closest and anti-clockwise-closest motion field(A and B) would be found.</p>
+						<figure>
+							<img src="../uploads/Main/MecanimBlendTree2D4.png" height="60%">
+							<figcaption>And a triangle with points (A, B and origin point) would be formed, weight of
+								each point would be calculated through
+								<a href="https://en.wikipedia.org/wiki/Barycentric_coordinate_system">Barycentric
+									Coordinate System</a>.
+							</figcaption>
+						</figure>
+
+
+						<div style="display: flex;">
+							<figure style="margin: 0; padding: 0;">
+								<img src="../uploads/Main/MecanimBlendTree2D5.png" height="50%">
+								<figcaption>If there is a motion field in position (0, 0). Barycentric coordinate of
+									triangle points would be the weights of these three motion fields.</figcaption>
+							</figure>
+
+							<figure style="margin: 0; padding: 0;">
+								<img src="../uploads/Main/MecanimBlendTree2D6.png" height="50%">
+								<figcaption>If there is not a motion field in position (0, 0). Weight of point A and B
+									would be kept,
+									and the weight of the point O would be given to every point.
+									That means, a shared weight would be add to every motion field (including point A
+									and B).</figcaption>
+							</figure>
+						</div>
+
+
+						<h3>2D Freeform Directional</h3>
+						<p>
+							Cùng được dùng khi ta có nhiều motions đại diện cho nhiều directions
+							, Tuy nhiên có thể đặt những motion có cùng direction vào đây - ví dụ, “walk forward” và
+							“run forward”
+							. Với <strong>Freeform Directional</strong> nên có 1 motion tại vị trí (0, 0) - ví dụ "idle"
+						</p>
+						<p>Với <strong>Freeform Directional</strong> mỗi motion field sẽ có 1 <strong>neighbor
+								list</strong>
+							- chứa các <strong>neighborhoods</strong> của mỗi motion field. Unity có những thuật toán
+							riêng phục vụ cho việc weight & neighborhood calculation.
+							Let’s make vector from the origin to the blend position v0, and make vectors from the origin
+							to the motion fields v1,v2, v3 and v4 like this:</p>
+
+						<figure style="margin: 0; padding: 0;">
+							<img src="../uploads/Main/MecanimBlendTree2D7.png" height="50%">
+							<figcaption>
+							</figcaption>
+						</figure>
+
+						<p>Nhìn chung, kết quả cuối cùng không chỉ phụ thuộc vào <strong>angle</strong> giữa các vector,
+							mà còn phụ thuộc <strong>magnitude</strong> của mỗi vector. As a result, <strong>blend
+								type</strong> này cho phép
+							đặt nhiều <strong>motion field</strong> có cùng <strong>direction</strong></p>
+
+						<figure style="margin: 0; padding: 0;">
+							<img src="../uploads/Main/MecanimBlendTree2D8.png" height="50%">
+							<figcaption>
+							</figcaption>
+						</figure>
+
+						<h3>2D Freeform Cartesian</h3>
+						<p>
+							Nên dùng khi các motion không represent cho các directions khác nhau
+							. Với <strong>Freeform Cartesian</strong> X parameter và Y parameter có thể represent
+							different concepts, ví dụ, angular speed và linear speed. An example would be motions such
+							as “walk forward no turn”, “run forward no turn”, “walk forward turn right”, “run forward
+							turn right” etc.
+						</p>
+
+						<p>
+							Freeform Cartesian blend type also has neighbor list stuff. But Unity does not care about
+							angle with this blend type. Instead, only positions are concerned.
+
+							This is much the same as 2D Blend Space in Unreal Engine 4. And it is the most
+							frequently-used blend type in our Unity project.</p>
+
+						
+
+						<p>Sau khi chọn <strong>Blend Type</strong>, ta sẽ cần chọn hai <span
+								class="tooltip"><a class="tooltipMoreInfoLink" href="AnimationParameters.html">Animation
+									Parameters</a><span class="tooltiptext">Used to communicate between scripting and
+									the Animator Controller. Some parameters can be set in scripting and used by the
+									controller, while other parameters are based on Custom Curves in Animation Clips and
+									can be sampled using the scripting API. <a href="AnimationParameters.html">More
+										info</a><br /><span class="tooltipGlossaryLink">See in <a
+											href="Glossary.html#AnimationParameters">Glossary</a></span></span></span>
+							sẽ điều khiển <a href="class-BlendTree.html">Blend Tree</a> này. In this example, the
+							parameters are <em>velocityX</em> (strafing - đi sang ngang) and <em>velocityZ</em> (forward speed - đi trước sau).</p>
+
+						<p>Sau đó, có thể thêm các <strong>animation clip</strong> vào <strong>Blend Tree</strong> bằng cách nhấn <strong>+ -&gt; Add Motion Field</strong>
+							. Sau đó kéo các <strong>animation clip</strong> vào các <strong>Motion field</strong> ta muốn</p>
+
+						<figure>
+							<img src="../uploads/Main/MecanimBlendTree2D.png"
+								alt="A 2D Blend Node with five Animation Clips.">
+							<figcaption>A 2D Blend Node with five Animation Clips.</figcaption>
+						</figure>
+
+						<p>Giá trị <strong>position</strong> trong 2D blending cũng có tác dụng giống giá trị <strong>threshold</strong> trong 1D blending.</p>
+
+						<h2>The 2D Blending Diagram</h2>
+
+						<p>Biểu đồ ở trên cùng của phần Inspector cho biết vị trí các <strong>child motions</strong> trong 2D blend space. Các motione được 
+							thể hiện dưới dạng các blue dots
+							. Motions nào không có <span
+								class="tooltip"><strong>Animation Clip</strong><span class="tooltiptext">Animation data
+									that can be used for animated characters or simple animations. It is a simple “unit”
+									piece of motion, such as (one specific instance of) “Idle”, “Walk” or “Run”. <a
+										class="tooltipMoreInfoLink" href="class-AnimationClip.html">More
+										info</a><br /><span class="tooltipGlossaryLink">See in <a
+											href="Glossary.html#AnimationClip">Glossary</a></span></span></span> or
+							Blend Tree assigned have no influence on the blend and are shown as gray dots. Ta có thể chọn 1 
+							 <strong>motion</strong> bằng cách nhấn vào thể hiện của nó (dot) trên biểu đồ. Khi được chọn, sự ảnh hưởng (influence) của 
+							motion đó tới các point trong <strong>blending space</strong> được visualized dưới dạng một <strong>blue field</strong>. The field is
+							strongest right under the position of the motion, where the motion has full influence,
+							meaning that its animation weight is 1 and the other animations have a weight of 0. Further
+							away the influence decreases as the influence of other motions take over.</p>
+
+						<figure>
+							<img src="../uploads/Main/MecanimBlendTree2DDiagram.png"
+								alt="The diagram at the top of the Blend Node Inspector visualizes the weights of the child motions over the extends of the parameter values.">
+							<figcaption>The diagram at the top of the Blend Node Inspector visualizes the weights of the
+								child motions over the extends of the parameter values.</figcaption>
+						</figure>
+
+						<p><strong>Red dot</strong> cho biết giá trị của 2 <strong>Parameters</strong>. If you press
+							<strong>Play</strong> in the <strong>Preview</strong> at the bottom of the
+							<strong>Inspector</strong> and drag the red dot in the diagram around, you can see how the
+							values of the parameters are controlling the blending of the different motions. In the
+							diagram you can also see the influence of each motion represented as circles around each
+							motion. You will see that if you move the red dot on top of one of the blue dots
+							representing a motion, the circle for that motion gains its maximum radius and the circles
+							for all other motions shrink down to nothing. At positions that are in between several
+							motions, multiple of the nearby motions will have an influence on the blend. If you select
+							one of the motions in order to see the blue influence field of that motion, you can see that
+							as you move the red dot around, the circle size of the motion corresponds exactly with how
+							strong the influence field is at various positions.
+						</p>
+
+						<p>When no motion is selected, the diagram shows a mix of all the influence fields that is more
+							blue where a single motion dominates and less blue where many motions contribute to the
+							blend.</p>
+
+						<h2>Positions</h2>
+
+						<p>You can change the positions of a motion by clicking on its corresponding blue dot in the
+							diagram and dragging it around. You can also edit position coordinates of a motion in the
+							motion list by typing in numbers in the number fields in the Pos X and Pos Y columns.</p>
+
+						<p>The <strong>Compute Positions</strong> drop-down will set the positions from data of your
+							choice obtained from the <span class="tooltip"><strong>root motions</strong><span
+									class="tooltiptext">Motion of character’s root node, whether it’s controlled by the
+									animation itself or externally. <a class="tooltipMoreInfoLink"
+										href="RootMotion.html">More info</a><br /><span class="tooltipGlossaryLink">See
+										in <a href="Glossary.html#RootMotion">Glossary</a></span></span></span> in the
+							Animation Clips. The data that is available to choose from is speed, velocity x, y, or z,
+							and angular speed in degrees or radians. If one or both of your <strong>parameters</strong>
+							correspond to one of these properties, you can compute the Pos X and/or Pos Y using the
+							Compute Positions drop-down.</p>
+
+						<table>
+							<colgroup>
+								<col style="text-align:left;">
+								<col style="text-align:left;">
+							</colgroup>
+
+							<thead>
+								<tr>
+									<th style="text-align:left;"><strong><em>Property:</em></strong></th>
+									<th style="text-align:left;"><strong><em>Function:</em></strong></th>
+								</tr>
+							</thead>
+
+							<tbody>
+								<tr>
+									<td style="text-align:left;"><strong>Velocity XZ</strong></td>
+									<td style="text-align:left;">Sets the Pos X of each motion according to its
+										velocity.x and the Pos Y according to its velocity.z.</td>
+								</tr>
+								<tr>
+									<td style="text-align:left;"><strong>Speed And Angular Speed</strong></td>
+									<td style="text-align:left;">Sets the Pos X of each motion according to its angular
+										speed (in radians per second) and the Pos Y according to its speed.</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<p>Furthermore you can mix and match by choosing <strong>Compute Position -&gt; X Position
+								From</strong> and/or <strong>Compute Position -&gt; Y Position From</strong> to only
+							auto-compute one of them at a time, leaving the other unchanged.</p>
+
+						<table>
+							<colgroup>
+								<col style="text-align:left;">
+								<col style="text-align:left;">
+							</colgroup>
+
+							<thead>
+								<tr>
+									<th style="text-align:left;"><strong><em>Property:</em></strong></th>
+									<th style="text-align:left;"><strong><em>Function:</em></strong></th>
+								</tr>
+							</thead>
+
+							<tbody>
+								<tr>
+									<td style="text-align:left;"><strong>Speed</strong></td>
+									<td style="text-align:left;">Sets the Pos X or Pos Y of each motion according to its
+										speed (the magnitude of the velocity).</td>
+								</tr>
+								<tr>
+									<td style="text-align:left;"><strong>Velocity X</strong></td>
+									<td style="text-align:left;">Sets the Pos X or Pos Y of each motion according to its
+										velocity.x.</td>
+								</tr>
+								<tr>
+									<td style="text-align:left;"><strong>Velocity Y</strong></td>
+									<td style="text-align:left;">Sets the Pos X or Pos Y of each motion according to its
+										velocity.y.</td>
+								</tr>
+								<tr>
+									<td style="text-align:left;"><strong>Velocity Z</strong></td>
+									<td style="text-align:left;">Sets the Pos X or Pos Y of each motion according to its
+										velocity.z.</td>
+								</tr>
+								<tr>
+									<td style="text-align:left;"><strong>Angular Speed (Rad)</strong></td>
+									<td style="text-align:left;">Sets the Pos X or Pos Y of each motion according to its
+										angular speed in radians per second.</td>
+								</tr>
+								<tr>
+									<td style="text-align:left;"><strong>Angular Speed (Deg)</strong></td>
+									<td style="text-align:left;">Sets the Pos X or Pos Y of each motion according to its
+										angular speed in degrees per second.</td>
+								</tr>
+							</tbody>
+						</table>
+
+						<p>Say, for example, that your parameters correspond to sideways velocity and forward velocity,
+							and that you have an idle animation with an average velocity (0, 0, 0), a walk animation
+							with (0, 0, 1.5), and two strafe animations with velocities of (–1.5, 0, 0) and (1.5, 0, 0)
+							respectively. Choosing the <em>Velocity XZ</em> option from the drop-down would set the
+							positions of the motions according to the X and Z coordinates of those velocities.</p>
+						<!-- area:authoring -->
+						<div id="_content"></div>
+						<div class="nextprev clear">
+							<div class="icon tt left mr1" data-distance="-40|-30|top">
+								<span class="prev"><a href="BlendTree-1DBlending.html"></a></span>
+								<div class="tip">1D Blending</div>
+							</div>
+							<div class="icon tt right" data-distance="-40|-30|top">
+								<span class="next"><a href="BlendTree-DirectBlending.html"></a></span>
+								<div class="tip">Direct Blending</div>
+							</div>
+						</div>
+					</div>
+					<div class="footer-wrapper">
+						<div class="footer clear">
+							<div class="copy">Copyright © 2023 Unity Technologies. Publication Date: 2023-09-01.</div>
+							<div class="menu">
+								<a href="https://learn.unity.com/">Tutorials</a><a
+									href="https://answers.unity3d.com">Community Answers</a><a
+									href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a
+									href="https://forum.unity3d.com">Forums</a><a
+									href="https://unity3d.com/asset-store">Asset Store</a><a
+									href="https://docs.unity3d.com/Manual/TermsOfUse.html">Terms of use</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
